@@ -1,0 +1,61 @@
+type Ad {
+  id: ID!
+  impression: Impression
+  content: AdContent!
+  max_impressions: Int!
+  partner: Partner!
+  cpm_value: Int!
+  ad_campaign: AdCampaign!
+}
+
+type Impression {
+  timestamp: Int!
+  session: Session!
+}
+
+type AdCampaign {
+  ads: [Ad!]!
+  max_spend: Int!
+  partner: Partner!
+}
+
+type Partner {
+  name: String!
+  email: String!
+  password: String!
+  ad_campaigns: [AdCampaign!]!
+}
+
+type Session {
+  user: User!
+  package_snapshot: [String!]!
+  package_manager: String!
+  started: Int!
+  ended: Int!
+}
+
+type User {
+  id: ID!
+}
+
+type Package {
+  dividend: Int!
+  dividend_age: Int!
+}
+
+type Maintainer {
+  name: String!
+  email: String!
+  password: String!
+  payout_email: String!
+}
+
+type AdContent {
+  title: String!
+  body: String!
+  url: String!
+}
+
+type Query {
+  availableAds: [Ad!]!
+}
