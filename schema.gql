@@ -1,14 +1,20 @@
 type Ad {
   id: ID!
-  impression: Impression
+  impressions: [Impression!]!
   content: AdContent!
   max_impressions: Int!
-  partner: Partner!
+  advertiser: Advertiser!
   cpm_value: Int!
   ad_campaign: AdCampaign!
 }
 
+input AdInput {
+  id: String!
+}
+
 type Impression {
+  id: ID!
+  ad: Ad!
   timestamp: Int!
   session: Session!
 }
@@ -16,31 +22,64 @@ type Impression {
 type AdCampaign {
   ads: [Ad!]!
   max_spend: Int!
-  partner: Partner!
+  advertiser: Advertiser!
+  disabled: Boolean
 }
 
-type Partner {
+input AdCampaignInput {
+  id: String!
+}
+
+type Advertiser {
   name: String!
   email: String!
   password: String!
   ad_campaigns: [AdCampaign!]!
+  billing_info: String!
+  active: Boolean!
+}
+
+input AdvertiserInput {
+  email: String!
+}
+
+type Partner {
+  id: ID!
+  name: String!
 }
 
 type Session {
   user: User!
   package_snapshot: [String!]!
   package_manager: String!
+  partner_id: Partner
   started: Int!
   ended: Int!
 }
 
+input SessionInput {
+  id: String!
+}
+
 type User {
-  id: ID!
+  id: String!
+  email: String!
+}
+
+input UserInput {
+  id: String!
 }
 
 type Package {
   dividend: Int!
   dividend_age: Int!
+  id: ID!
+  maintainers: [Maintainer!]! @relation(name: "package_maintainers")
+  owner: Maintainer! @relation(name: "packages_owned")
+}
+
+input PackageInput {
+  id: String!
 }
 
 type Maintainer {
@@ -48,6 +87,19 @@ type Maintainer {
   email: String!
   password: String!
   payout_email: String!
+  packagesMaintained: [Package!]! @relation(name: "package_maintainers")
+  packagesOwned: [Package!]! @relation(name: "packages_owned")
+  active: Boolean
+}
+
+input MaintainerInput {
+  email: String!
+}
+
+type MaintainerPackageRel {
+  maintainer: Maintainer!
+  package: Package!
+  revenue_percent: Int!
 }
 
 type AdContent {
@@ -56,6 +108,45 @@ type AdContent {
   url: String!
 }
 
+input AdContentInput {
+  title: String!
+  body: String!
+  url: String!
+}
+
 type Query {
   availableAds: [Ad!]!
+  packagesByMaintainer: [Package!]!
+  allAdsByAdvertiser: [Ad!]!
+  allAdsByCampaign: [Ad!]!
+  dividendByPackage: Int!
+  revenueByMaintainer: Int!
+  impressionsByCampaign: [Impression!]!
+  impressionByAd: [Impression!]!
+  spendPerAd: Int!
+  spendPerCampaign: Int!
+  revenueByPartner: Int!
+}
+
+type Mutations {
+  createAd(content: AdContentInput, advertiser: AdvertiserInput, cpmValue: Int, adCampaign: AdCampaignInput): Ad
+  deleteAd(id: ID): Ad
+  updateAdContent(content: AdContentInput): Ad
+  createAdvertiser(name: String, email: String, password: String, billingInfo: String): Advertiser
+  updateAdvertiser(active: Boolean, name: String, password: String, adCampaigns: [AdCampaignInput!]!, billingInfo: String): Advertiser
+  createAdCampaign(maxSpend: Int, advertiser: AdvertiserInput): AdCampaign
+  deleteAdCampaign(id: ID): AdCampaign
+  updateAdCampaign(maxSpend: Int, ads: [AdInput!]!, disabled: Boolean): AdCampaign
+  createSession(user: UserInput, packageSnapshot: [String!]!, packageManager: String!, partnerId: String, started: Int!): Session
+  updateSession(ended: Int): Session
+  createMaintainer(name: String, email: String, password: String, payoutEmail: String, packagesOwned: [PackageInput!]!, packagesMaintained: [PackageInput!]!): Maintainer
+  updateMaintainer(active: Boolean, name: String, password: String, payoutEmail: String, packagesOwned: [PackageInput!]!, packagesMaintained: [PackageInput!]!): Maintainer
+  createMaintainerPackageRelationship(maintainer: MaintainerInput, package: PackageInput, revPercentage: Int): MaintainerPackageRel
+  updateMaintainerPackageRelationship(maintainer: MaintainerInput, package: PackageInput, revPercentage: Int): MaintainerPackageRel
+  createPackage(maintainers: [MaintainerInput!]!, owner: MaintainerInput): Package
+  updatePackage(owner: MaintainerInput, dividend: Int, dividendAge: Int, maintainers: [MaintainerInput!]!): Package
+  createUser(id: String, email: String): User
+  createImpression(id: String, timestamp: Int, session: SessionInput): Impression
+  createPartner(name: String): Partner
+  updatePartner(name: String): Partner
 }
