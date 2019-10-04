@@ -60,6 +60,7 @@ Collection User {
 
 Collection Package {
   id: String
+  name: String
   dividend: Int
   dividend_age: Int
   maintainers: [maintainer_id]
