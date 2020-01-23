@@ -1,0 +1,6 @@
+{
+  "name": "flossbank-schema",
+  "devDependencies": {
+    "standard": "^14.3.1"
+  }
+}
