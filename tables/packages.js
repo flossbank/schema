@@ -32,7 +32,7 @@ export const Package = {
       enum: Registry
     },
     dividend: {
-      description: 'Dividend collected for this package in the current collection period',
+      description: 'Dividend collected for this package (in microcents) in the current collection period',
       type: 'number'
     },
     dividendAge: {
@@ -40,7 +40,7 @@ export const Package = {
       type: 'number'
     },
     totalRevenue: {
-      description: 'Sum of dividends across all collection periods',
+      description: 'Sum of dividends (in microcents) across all collection periods',
       type: 'number'
     }
   }
