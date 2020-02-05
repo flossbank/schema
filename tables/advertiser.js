@@ -24,9 +24,19 @@ export const Advertiser = {
       maxLength: 128
     },
     billingInfo: {
-      description: 'Stripe customer token',
-      type: 'string',
-      maxLength: 128
+      description: 'Stripe customer info',
+      type: 'object',
+      properties: {
+        customerId: {
+          description: 'The stripe customer id',
+          type: 'string',
+          maxLength: 128
+        },
+        cardOnFile: {
+          description: 'Whether we have a card on file',
+          type: 'boolean'
+        }
+      }
     },
     adCampaigns: {
       type: 'array',
