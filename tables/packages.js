@@ -1,4 +1,4 @@
-import Registry from '../types/registry'
+import Install from '../types/install'
 
 export const Package = {
   type: 'object',
@@ -27,16 +27,22 @@ export const Package = {
       type: 'string',
       description: 'Corresponds to maintainer._id in the maintainer table'
     },
+    language: {
+      type: 'string'
+    },
     registry: {
-      type: 'string',
-      enum: Registry
+      type: 'string'
+    },
+    installs: {
+      type: 'array',
+      items: Install
     },
     dividend: {
       description: 'Dividend collected for this package (in microcents) in the current collection period',
       type: 'number'
     },
-    dividendAge: {
-      description: 'Age of `dividend` in days',
+    lastPayout: {
+      description: 'Timestamp of last payout',
       type: 'number'
     },
     totalRevenue: {
