@@ -18,8 +18,8 @@ export const User = {
           description: 'The amount (if any) of a monthly donation in microcents',
           type: 'number'
         },
-        lastDispersal: {
-          description: 'The Unix timestamp of the last dispersal of the user\'s monthly donation (if any)',,
+        lastCharge: {
+          description: 'The Unix timestamp of the last charge of the user\'s monthly donation (if any)',,
           type: 'number'
         },
         cardOnFile: {
