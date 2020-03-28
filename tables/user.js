@@ -11,6 +11,10 @@ export const User = {
       maxLength: 128,
       format: 'email'
     },
+    apiKey: {
+      type: 'string',
+      maxLength: 128,
+    },
     billingInfo: {
       type: 'object',
       properties: {
