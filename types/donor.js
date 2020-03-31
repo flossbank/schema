@@ -1,6 +1,6 @@
-export const Maintainer = {
-  title: 'Maintainer',
-  description: 'An open source maintainer',
+const Donor = {
+  title: 'Donor',
+  type: 'object',
   properties: {
     name: {
       type: 'string',
@@ -11,25 +11,19 @@ export const Maintainer = {
       maxLength: 128,
       format: 'email'
     },
-    payoutEmail: {
+    organization: {
       type: 'string',
-      maxLength: 128,
-      format: 'email'
+      maxLength: 128
     },
     password: {
       description: 'Hash of password',
       type: 'string',
       maxLength: 128
     },
-    tokens: {
-      description: 'Tokens used to verify ownership/maintainership of packages on package registries',
-      type: 'object',
-      patternProperties: {
-        '.+': {
-          description: 'Tokens are stored in the form <package registry>:<token>',
-          type: 'string'
-        }
-      }
+    billingInfo: {
+      description: 'Stripe customer token',
+      type: 'string',
+      maxLength: 128
     },
     active: {
       description: 'Denotes whether or not the account can be used',
@@ -41,3 +35,5 @@ export const Maintainer = {
     }
   }
 }
+
+module.exports = Donor

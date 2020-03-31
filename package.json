@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "devDependencies": {
     "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "fluent-schema": "^0.10.0"
   }
 }

@@ -1,12 +1,15 @@
-export const Impression = {
-  type: 'object',
-  properties: {
-    timestamp: {
-      type: 'number'
-    },
-    sessionId: {
-      description: 'Corresponds to session._id in the session table',
-      type: 'string'
-    }
-  }
-}
+const S = require('fluent-schema')
+// const { SessionId } = require('./Session')
+
+const ImpressionPublic = S.object()
+  .prop(
+    'timestamp',
+    S.number()
+  )
+
+const ImpressionPrivate = S.object()
+  .extend(ImpressionPublic)
+  .prop('sessionId', S.string())
+  // .prop('sessionId', SessionId)
+
+module.exports = { ImpressionPublic, ImpressionPrivate }
