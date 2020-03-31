@@ -1,7 +1,7 @@
 const S = require('fluent-schema')
-const { AdCampaignPublic } = require('./adCampaign')
+const { AdCampaignPublic } = require('./AdCampaign')
 const { BillingInfo } = require('./BillingInfo')
-const { AdDraftPublicAdvertiser } = require('./ad')
+const { AdDraftPublicAdvertiser } = require('./Ad')
 
 const AdvertiserId = S.string().maxLength(128)
 

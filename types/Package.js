@@ -1,6 +1,6 @@
 const S = require('fluent-schema')
 const { InstallPrivate } = require('./Install')
-const { MaintainerId } = require('./maintainer')
+const { MaintainerId } = require('./Maintainer')
 
 const PackageMaintainer = S.object()
   .prop(
