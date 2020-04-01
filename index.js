@@ -48,6 +48,7 @@ module.exports = {
     check: require('./api/user/check'),
     login: require('./api/user/login'),
     logout: require('./api/user/logout'),
+    optOut: require('./api/user/opt-out'),
     register: require('./api/user/register'),
     validateCaptcha: require('./api/user/validate-captcha'),
     verify: require('./api/user/verify')

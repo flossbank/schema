@@ -61,4 +61,12 @@ const UserRegistration = S.object()
     'email',
     S.string().maxLength(128).format('email').required()
   )
-module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserPublic, UserRegistration, UserBillingInfoPublic }
+
+const UserOptOutRequest = S.object()
+  .description('Properties required from clients to opt out of ads for a user')
+  .prop(
+    'optOutOfAds',
+    S.boolean().required()
+  )
+
+module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserPublic, UserRegistration, UserOptOutRequest, UserBillingInfoPublic }
