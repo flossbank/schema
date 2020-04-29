@@ -20,6 +20,16 @@ const VerifyData = S.object()
     S.string().maxLength(128).required()
   )
 
+const PollRegistrationRequest = S.object()
+  .prop(
+    'email',
+    S.string().maxLength(128).format('email').required()
+  )
+  .prop(
+    'pollingToken',
+    S.string().maxLength(128).required()
+  )
+
 const MagicLinkRequest = S.object().prop('email', S.string().maxLength(128).format('email').required())
 const MagicLinkResponse = S.string() // a verification code
 
@@ -28,8 +38,16 @@ const MagicLinkAuthentication = S.object().extend(VerifyData)
 const RecaptchaAuthentication = S.object()
   .extend(VerifyData)
   .prop(
-    'response',
+    'recaptchaResponse',
     S.string().maxLength(1024)
   ).required()
 
-module.exports = { BasicLoginData, MagicLinkRequest, MagicLinkResponse, MagicLinkAuthentication, RecaptchaAuthentication, VerifyData }
+module.exports = {
+  BasicLoginData,
+  MagicLinkRequest,
+  MagicLinkResponse,
+  MagicLinkAuthentication,
+  RecaptchaAuthentication,
+  VerifyData,
+  PollRegistrationRequest
+}

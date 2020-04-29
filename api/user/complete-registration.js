@@ -1,9 +1,9 @@
 const { UserApiKey } = require('../../types/User')
-const { RecaptchaAuthentication } = require('../../types/Login')
+const { PollRegistrationRequest } = require('../../types/Login')
 const { Base200WithData } = require('../../common/reply')
 
 module.exports = {
-  body: RecaptchaAuthentication,
+  body: PollRegistrationRequest,
   response: {
     200: Base200WithData('apiKey', UserApiKey)
   }
