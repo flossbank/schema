@@ -44,13 +44,11 @@ module.exports = {
     create: require('./api/url/create')
   },
   user: {
-    authenticate: require('./api/user/authenticate'),
-    check: require('./api/user/check'),
-    login: require('./api/user/login'),
+    completeLogin: require('./api/user/complete-login'),
+    requestLogin: require('./api/user/request-login'),
     logout: require('./api/user/logout'),
-    optOut: require('./api/user/opt-out'),
     register: require('./api/user/register'),
-    validateCaptcha: require('./api/user/validate-captcha'),
-    verify: require('./api/user/verify')
+    completeRegistration: require('./api/user/complete-registration'),
+    verifyRegistration: require('./api/user/verify-registration')
   }
 }
