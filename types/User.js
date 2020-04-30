@@ -3,6 +3,7 @@ const { BillingInfo } = require('./BillingInfo')
 
 const UserId = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
+const UserRegistrationPollingToken = S.string().maxLength(128)
 
 const UserBillingInfoPublic = S.object()
   .extend(BillingInfo)
@@ -69,4 +70,4 @@ const UserOptOutRequest = S.object()
     S.boolean().required()
   )
 
-module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserPublic, UserRegistration, UserOptOutRequest, UserBillingInfoPublic }
+module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserPublic, UserRegistration, UserRegistrationPollingToken, UserOptOutRequest, UserBillingInfoPublic }
