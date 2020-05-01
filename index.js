@@ -48,6 +48,7 @@ module.exports = {
     requestLogin: require('./api/user/request-login'),
     logout: require('./api/user/logout'),
     register: require('./api/user/register'),
+    updateBilling: require('./api/user/update-billing'),
     completeRegistration: require('./api/user/complete-registration'),
     verifyRegistration: require('./api/user/verify-registration')
   }
