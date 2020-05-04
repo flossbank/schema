@@ -9,7 +9,7 @@ const UserBillingInfoPublic = S.object()
   .extend(BillingInfo)
   .prop(
     'monthlyDonation',
-    S.number().description('The amount (if any) of a monthly donation in microcents')
+    S.number().description('The amount (if any) of a monthly donation in cents')
   )
 
 const UserBillingInfoPrivate = S.object()

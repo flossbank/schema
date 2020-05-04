@@ -50,6 +50,7 @@ module.exports = {
     register: require('./api/user/register'),
     updateBilling: require('./api/user/update-billing'),
     completeRegistration: require('./api/user/complete-registration'),
-    verifyRegistration: require('./api/user/verify-registration')
+    verifyRegistration: require('./api/user/verify-registration'),
+    createDonation: require('./api/user/create-donation')
   }
 }
