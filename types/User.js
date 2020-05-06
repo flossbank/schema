@@ -6,7 +6,7 @@ const UserApiKey = S.string().maxLength(128)
 const UserRegistrationPollingToken = S.string().maxLength(128)
 
 const UserBillingInfoPublic = S.object()
-  .extend(BillingInfo)
+  .extend(BillingInfoUpdate)
   .prop(
     'monthlyDonation',
     S.number().description('The amount (if any) of a monthly donation in cents')
