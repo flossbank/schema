@@ -1,4 +1,4 @@
-const { UserCreateDonation } = require('../../types/user')
+const { UserCreateDonation } = require('../../types/User')
 const { Base200Response } = require('../../common/reply')
 
 module.exports = {
