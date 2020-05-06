@@ -1,5 +1,5 @@
 const S = require('fluent-schema')
-const { BillingInfo } = require('./BillingInfo')
+const { BillingInfoUpdate } = require('./BillingInfo')
 
 const UserId = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
