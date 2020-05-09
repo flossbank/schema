@@ -16,6 +16,12 @@ const UserCreateDonation = S.object()
 .extend(BillingInfoUpdate)
 .prop(
   'amount',
+  S.number().description('The amount (if any) of a monthly donation in cents').required()
+)
+
+const UserUpdateDonation = S.object()
+.prop(
+  'amount',
   S.number().description('The amount (if any) of a monthly donation in cents')
 )
 
@@ -77,4 +83,4 @@ const UserOptOutRequest = S.object()
     S.boolean().required()
   )
 
-module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserCreateDonation, UserPublic, UserRegistration, UserRegistrationPollingToken, UserOptOutRequest, UserBillingInfoPublic }
+module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserCreateDonation, UserCreateDonation, UserPublic, UserRegistration, UserRegistrationPollingToken, UserOptOutRequest, UserBillingInfoPublic }

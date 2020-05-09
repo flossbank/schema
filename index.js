@@ -51,6 +51,7 @@ module.exports = {
     updateBilling: require('./api/user/update-billing'),
     completeRegistration: require('./api/user/complete-registration'),
     verifyRegistration: require('./api/user/verify-registration'),
-    createDonation: require('./api/user/create-donation')
+    createDonation: require('./api/user/create-donation'),
+    updateDonation: require('./api/user/update-donation')
   }
 }
