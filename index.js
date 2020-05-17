@@ -54,5 +54,8 @@ module.exports = {
     createDonation: require('./api/user/create-donation'),
     updateDonation: require('./api/user/update-donation'),
     deleteDonation: require('./api/user/delete-donation')
+  },
+  stripe: {
+    webhooks: require('./api/stripe/webhook-event')
   }
 }
