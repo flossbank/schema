@@ -2,8 +2,14 @@ const S = require('fluent-schema')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
 
 const UserId = S.string().maxLength(128)
+const UserInstallToken = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
-const UserRegistrationPollingToken = S.string().maxLength(128)
+
+const UserInstallComplete = S.object()
+  .prop(
+    'token',
+    UserInstallToken
+  ).required()
 
 const UserBillingInfoPublic = S.object()
   .extend(BillingInfo)
@@ -13,17 +19,17 @@ const UserBillingInfoPublic = S.object()
   )
 
 const UserCreateDonation = S.object()
-.extend(BillingInfoUpdate)
-.prop(
-  'amount',
-  S.number().description('The amount (if any) of a monthly donation in cents').required()
-)
+  .extend(BillingInfoUpdate)
+  .prop(
+    'amount',
+    S.number().description('The amount (if any) of a monthly donation in cents').required()
+  )
 
 const UserUpdateDonation = S.object()
-.prop(
-  'amount',
-  S.number().description('The amount (if any) of a monthly donation in cents')
-)
+  .prop(
+    'amount',
+    S.number().description('The amount (if any) of a monthly donation in cents')
+  )
 
 const UserBillingInfoPrivate = S.object()
   .extend(UserBillingInfoPublic)
@@ -83,4 +89,16 @@ const UserOptOutRequest = S.object()
     S.boolean().required()
   )
 
-module.exports = { UserPrivate, UserKeyPair, UserApiKey, UserCreateDonation, UserCreateDonation, UserPublic, UserRegistration, UserRegistrationPollingToken, UserOptOutRequest, UserBillingInfoPublic }
+module.exports = {
+  UserPrivate,
+  UserKeyPair,
+  UserApiKey,
+  UserInstallToken,
+  UserInstallComplete,
+  UserCreateDonation,
+  UserUpdateDonation,
+  UserPublic,
+  UserRegistration,
+  UserOptOutRequest,
+  UserBillingInfoPublic
+}
