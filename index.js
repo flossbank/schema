@@ -58,5 +58,8 @@ module.exports = {
   },
   stripe: {
     webhooks: require('./api/stripe/webhook-event')
+  },
+  support: {
+    feedback: require('./api/customer/feedback')
   }
 }
