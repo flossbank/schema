@@ -34,6 +34,10 @@ const UserUpdateDonation = S.object()
     'amount',
     S.number().description('The amount (if any) of a monthly donation in cents')
   )
+  .prop(
+    'seeAds',
+    S.boolean().description('Whether a user wants to see ads AND donate')
+  )
 
 const UserBillingInfoPrivate = S.object()
   .extend(UserBillingInfoPublic)
