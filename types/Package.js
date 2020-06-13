@@ -28,32 +28,12 @@ const PackagePublic = S.object()
     S.string().maxLength(128)
   )
   .prop(
-    'maintainers',
-    S.array().items(PackageMaintainer)
-  )
-  .prop(
-    'owner',
-    MaintainerId
-  )
-  .prop(
     'language',
     S.string()
   )
   .prop(
     'registry',
     PackageRegistry
-  )
-  .prop(
-    'dividend',
-    S.number().description('Dividend collected for this package (in microcents) in the current collection period')
-  )
-  .prop(
-    'lastPayout',
-    S.number().description('Timestamp of the last payout')
-  )
-  .prop(
-    'totalRevenue',
-    S.number().description('Sum of dividends (in microcents) across all collection periods')
   )
 
 const PackagePrivate = S.object()
@@ -62,6 +42,30 @@ const PackagePrivate = S.object()
   .prop(
     'installs',
     S.array().items(InstallPrivate)
+  )
+  .prop(
+    'lastPayout',
+    S.number().description('Timestamp of the last payout')
+  )
+
+const PackageMaintainerProps = S.object()
+  .description('Package properties visible to maintainers')
+  .extend(PackagePublic)
+  .prop(
+    'maintainers',
+    S.array().items(PackageMaintainer)
+  )
+  .prop(
+    'owner',
+    MaintainerId
+  )
+
+const PackageUserProps = S.object()
+  .description('Package properties visible to users')
+  .extend(PackagePublic)
+  .prop(
+    'installCount',
+    S.number().description('Number of installations by a particular user')
   )
 
 const PackageUpdate = S.object()
@@ -78,4 +82,13 @@ const PackageUpdate = S.object()
     MaintainerId
   ).required()
 
-module.exports = { PackageId, PackageRegistry, PackagePublic, PackagePrivate, PackageUpdate }
+module.exports = {
+  PackageId,
+  PackageRegistry,
+  PackagePublic,
+  PackageMaintainer,
+  PackageMaintainerProps,
+  PackageUserProps,
+  PackagePrivate,
+  PackageUpdate
+}
