@@ -24,4 +24,15 @@ const BillingInfoUpdate = S.object()
     S.string().maxLength(4).required()
   )
 
-module.exports = { BillingInfo, BillingInfoUpdate, BillingInfoWithCustomerId }
+const DonationInfoPublic = S.object()
+  .extend(BillingInfo)
+  .prop(
+    'amount',
+    S.number().description('Amount of current donation')
+  )
+  .prop(
+    'renewal',
+    S.number().description('Next charge date in milliseconds timestamp')
+  )
+
+module.exports = { BillingInfo, BillingInfoUpdate, BillingInfoWithCustomerId, DonationInfoPublic }
