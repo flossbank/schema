@@ -56,7 +56,8 @@ module.exports = {
     updateDonation: require('./api/user/update-donation'),
     deleteDonation: require('./api/user/delete-donation'),
     getInstalledPackages: require('./api/user/get-installed-packages'),
-    getDonationInfo: require('./api/user/get-donation-info')
+    getDonationInfo: require('./api/user/get-donation-info'),
+    resumeSession: require('./api/user/resume')
   },
   stripe: {
     webhooks: require('./api/stripe/webhook-event')
