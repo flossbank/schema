@@ -97,6 +97,13 @@ const UserOptOutRequest = S.object()
     S.boolean().required()
   )
 
+const UserSessionDataPublic = S.object()
+  .description('Properties regarding user session activity')
+  .prop(
+    'sessionCount',
+    S.number().description('Number of sessions started by user')
+  )
+
 module.exports = {
   UserPrivate,
   UserKeyPair,
@@ -108,5 +115,6 @@ module.exports = {
   UserPublic,
   UserRegistration,
   UserOptOutRequest,
-  UserBillingInfoPublic
+  UserBillingInfoPublic,
+  UserSessionDataPublic
 }
