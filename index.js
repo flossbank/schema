@@ -57,6 +57,7 @@ module.exports = {
     deleteDonation: require('./api/user/delete-donation'),
     getInstalledPackages: require('./api/user/get-installed-packages'),
     getDonationInfo: require('./api/user/get-donation-info'),
+    getSessions: require('./api/user/get-sessions'),
     resumeSession: require('./api/user/resume')
   },
   stripe: {
