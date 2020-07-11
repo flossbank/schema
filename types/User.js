@@ -64,6 +64,10 @@ const UserPublic = S.object()
     'billingInfo',
     UserBillingInfoPublic
   )
+  .prop(
+    'optOutOfAds',
+    S.boolean().description('Whether or not the user has opted out of seeing ads (by donating).')
+  )
 
 const UserPrivate = S.object()
   .extend(UserPublic)
