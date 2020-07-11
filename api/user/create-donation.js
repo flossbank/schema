@@ -1,9 +1,10 @@
+const S = require('fluent-schema')
 const { UserCreateDonation } = require('../../types/User')
-const { Base200Response } = require('../../common/reply')
+const { Base200WithData } = require('../../common/reply')
 
 module.exports = {
   body: UserCreateDonation,
   response: {
-    200: Base200Response
+    200: Base200WithData('optOutOfAds', S.boolean())
   }
 }
