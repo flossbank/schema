@@ -93,6 +93,10 @@ const UserRegistration = S.object()
     'email',
     S.string().maxLength(128).format('email').required()
   )
+  .prop(
+    'referralCode',
+    S.string().maxLength(8)
+  )
 
 const UserOptOutRequest = S.object()
   .description('Properties required from clients to opt out of ads for a user')
