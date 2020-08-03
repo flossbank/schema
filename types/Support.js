@@ -8,7 +8,7 @@ const CustomerFeedback = S.object()
   )
   .prop(
     'body',
-    S.string().required()
+    S.string().maxLength(1028).required()
   )
   .prop(
     'name',
