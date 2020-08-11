@@ -82,6 +82,5 @@ module.exports = {
   DonorCreateDonation,
   DonorUpdateDonation,
   DonorPublic,
-  DonorBillingInfoPublic,
   DonorBillingInfoPrivate
 }
