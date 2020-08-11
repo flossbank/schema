@@ -28,11 +28,11 @@ const DonorBillingInfoPrivate = S.object()
   .extend(BillingInfo)
   .prop(
     'lastCharge',
-    S.number().description('The Unix timestamp of the last charge of the user\'s monthly donation (if any)')
+    S.number().description('The Unix timestamp of the last charge of the donors\'s monthly donation (if any)')
   )
   .prop(
     'customerId',
-    S.string().maxLength(128).description('The user\'s Stripe customer id')
+    S.string().maxLength(128).description('The donors\'s Stripe customer id')
   )
 
 const DonorPublic = S.object()
@@ -62,7 +62,7 @@ const DonorPrivate = S.object()
   .extend(DonorPublic)
   .prop(
     'billingInfo',
-    UserBillingInfoPrivate
+    DonorBillingInfoPrivate
   )
   .prop(
     'active',
