@@ -39,6 +39,10 @@ const CodeHostAccessTokenAuthentication = S.object()
       'codeHost',
       S.string().maxLength(128).required()
     )
+    .prop(
+      'referralCode',
+      S.string().maxLength(8)
+    )
 
 const MagicLinkRequest = S.object().prop('email', S.string().maxLength(128).format('email').required())
 const MagicLinkResponse = S.string() // a verification code
