@@ -65,5 +65,8 @@ module.exports = {
   },
   support: {
     feedback: require('./api/customer/feedback')
+  },
+  donor: {
+    completeLogin: require('./api/donor/complete-login')
   }
 }
