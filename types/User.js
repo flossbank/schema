@@ -1,5 +1,6 @@
 const S = require('fluent-schema')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
+const { UserOrganizations } = require('./Organization')
 
 const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
@@ -61,8 +62,19 @@ const UserPublic = S.object()
     S.string().maxLength(128).format('email')
   )
   .prop(
+    'codeHost',
+    S.object()
+      .prop('host', S.string().maxLength(128))
+      .prop('refresh_token', S.string().maxLength(128))
+      .prop('refresh_token_expiration', S.number().description('When the refresh token expires'))
+  )
+  .prop(
     'billingInfo',
     UserBillingInfoPublic
+  )
+  .prop(
+    'organizations',
+    S.array().items(UserOrganizations)
   )
   .prop(
     'optOutOfAds',
@@ -92,6 +104,13 @@ const UserRegistration = S.object()
   .prop(
     'email',
     S.string().maxLength(128).format('email').required()
+  )
+  .prop(
+    'codeHost',
+    S.object()
+      .prop('host', S.string().maxLength(128))
+      .prop('refresh_token', S.string().maxLength(128))
+      .prop('refresh_token_expiration', S.number().description('When the refresh token expires'))
   )
   .prop(
     'referralCode',
