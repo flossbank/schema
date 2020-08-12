@@ -84,7 +84,7 @@ const OrganizationUser = S.object()
   )
   .prop(
     'role',
-    S.string().enum(['write', 'read', 'admin'])
+    S.string().enum(['write', 'read'])
   )
 
 // Orgs of a user
@@ -95,7 +95,7 @@ const UserOrganization = S.object()
   )
   .prop(
     'role',
-    S.string().enum(['write', 'read', 'admin'])
+    S.string().enum(['write', 'read'])
   )
 
 module.exports = {
