@@ -99,13 +99,6 @@ const UserRegistration = S.object()
     S.string().maxLength(128).format('email').required()
   )
   .prop(
-    'codeHost',
-    S.object()
-      .prop('host', S.string().enum(['GitHub']))
-      .prop('refreshToken', S.string().maxLength(128))
-      .prop('refreshTokenExpiration', S.number().description('When the refresh token expires'))
-  )
-  .prop(
     'referralCode',
     S.string().maxLength(8)
   )
