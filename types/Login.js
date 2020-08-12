@@ -37,7 +37,7 @@ const CodeHostAuthentication = S.object()
     )
     .prop(
       'codeHost',
-      S.string().maxLength(128).description('A code host i.e. GitHub GitLab BitBucket').required()
+      S.string().enum(['GitHub']).required()
     )
     .prop(
       'state',

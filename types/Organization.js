@@ -78,14 +78,14 @@ const OrganizationMakeDonationGlobalRequest = S.object()
 
 // Organization users
 const OrganizationUser = S.object()
-.prop(
-  'userId',
-  S.string().description('The user ids that have a role within an org').required()
-)
-.prop(
-  'role',
-  S.string().enum(['write', 'read', 'admin'])
-)
+  .prop(
+    'userId',
+    S.string().description('The user ids that have a role within an org').required()
+  )
+  .prop(
+    'role',
+    S.string().enum(['write', 'read', 'admin'])
+  )
 
 // Orgs of a user
 const UserOrganization = S.object()

@@ -64,9 +64,9 @@ const UserPublic = S.object()
   .prop(
     'codeHost',
     S.object()
-      .prop('host', S.string().maxLength(128))
-      .prop('refresh_token', S.string().maxLength(128))
-      .prop('refresh_token_expiration', S.number().description('When the refresh token expires'))
+      .prop('host', S.string().enum(['GitHub']))
+      .prop('refreshToken', S.string().maxLength(128))
+      .prop('refreshTokenExpiration', S.number().description('When the refresh token expires'))
   )
   .prop(
     'billingInfo',
@@ -108,9 +108,9 @@ const UserRegistration = S.object()
   .prop(
     'codeHost',
     S.object()
-      .prop('host', S.string().maxLength(128))
-      .prop('refresh_token', S.string().maxLength(128))
-      .prop('refresh_token_expiration', S.number().description('When the refresh token expires'))
+      .prop('host', S.string().enum(['GitHub']))
+      .prop('refreshToken', S.string().maxLength(128))
+      .prop('refreshTokenExpiration', S.number().description('When the refresh token expires'))
   )
   .prop(
     'referralCode',
