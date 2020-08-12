@@ -103,7 +103,7 @@ const UserKeyPair = S.object()
 const UserRegistration = S.object()
   .prop(
     'email',
-    S.string().maxLength(128).format('email').required()
+    S.string().maxLength(128).format('email')
   )
   .prop(
     'codeHost',
