@@ -3,6 +3,17 @@ const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
 
 const OrganizationId = S.string().maxLength(128)
 
+// Organization users
+const OrganizationUser = S.object()
+  .prop(
+    'userId',
+    S.string().description('The user ids that have a role within an org').required()
+  )
+  .prop(
+    'role',
+    S.string().enum(['write', 'read'])
+  )
+
 const OrganizationCreateDonation = S.object()
   .extend(BillingInfoUpdate)
   .prop(
@@ -74,17 +85,6 @@ const OrganizationMakeDonationGlobalRequest = S.object()
   .prop(
     'globalDonation',
     S.boolean().required()
-  )
-
-// Organization users
-const OrganizationUser = S.object()
-  .prop(
-    'userId',
-    S.string().description('The user ids that have a role within an org').required()
-  )
-  .prop(
-    'role',
-    S.string().enum(['write', 'read'])
   )
 
 // Orgs of a user
