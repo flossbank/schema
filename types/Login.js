@@ -36,10 +36,6 @@ const CodeHostAuthentication = S.object()
       S.string().maxLength(128).description('A code which is used to retrieve an access code meaning we are authed').required()
     )
     .prop(
-      'codeHost',
-      S.string().enum(['GitHub']).required()
-    )
-    .prop(
       'state',
       S.string().maxLength(128).description('A state is given to a code host, and they return it back to ensure no cross site requests are made on false behalf').required()
     )
