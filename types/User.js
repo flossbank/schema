@@ -62,13 +62,6 @@ const UserPublic = S.object()
     S.string().maxLength(128).format('email')
   )
   .prop(
-    'codeHost',
-    S.object()
-      .prop('host', S.string().enum(['GitHub']))
-      .prop('refreshToken', S.string().maxLength(128))
-      .prop('refreshTokenExpiration', S.number().description('When the refresh token expires'))
-  )
-  .prop(
     'billingInfo',
     UserBillingInfoPublic
   )
@@ -103,7 +96,7 @@ const UserKeyPair = S.object()
 const UserRegistration = S.object()
   .prop(
     'email',
-    S.string().maxLength(128).format('email')
+    S.string().maxLength(128).format('email').required()
   )
   .prop(
     'codeHost',
