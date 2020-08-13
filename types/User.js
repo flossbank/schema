@@ -15,7 +15,7 @@ const UserInstallComplete = S.object()
 const UserOrganization = S.object()
   .prop(
     'organizationId',
-    S.string().description('The organization id in the organization - user relationship').required()
+    S.string().description('The organization id in the organization - user relationship')
   )
   .prop(
     'role',
