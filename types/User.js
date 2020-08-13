@@ -11,6 +11,17 @@ const UserInstallComplete = S.object()
     UserInstallToken
   ).required()
 
+// Orgs of a user
+const UserOrganization = S.object()
+  .prop(
+    'organizationId',
+    S.string().description('The organization id in the organization - user relationship')
+  )
+  .prop(
+    'role',
+    S.string().enum(['write', 'read'])
+  )
+
 const UserBillingInfoPublic = S.object()
   .extend(BillingInfo)
   .prop(
@@ -63,6 +74,10 @@ const UserPublic = S.object()
   .prop(
     'billingInfo',
     UserBillingInfoPublic
+  )
+  .prop(
+    'organizations',
+    S.array().items(UserOrganization)
   )
   .prop(
     'optOutOfAds',

@@ -58,12 +58,14 @@ module.exports = {
     getInstalledPackages: require('./api/user/get-installed-packages'),
     getDonationInfo: require('./api/user/get-donation-info'),
     getSessions: require('./api/user/get-sessions'),
-    resumeSession: require('./api/user/resume')
+    resumeSession: require('./api/user/resume'),
+    githubAuth: require('./api/user/github-auth')
   },
   stripe: {
     webhooks: require('./api/stripe/webhook-event')
   },
   support: {
     feedback: require('./api/customer/feedback')
-  }
+  },
+  organization: {}
 }

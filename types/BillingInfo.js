@@ -21,7 +21,7 @@ const BillingInfoUpdate = S.object()
   )
   .prop(
     'last4',
-    S.string().maxLength(4).required()
+    S.string().maxLength(4)
   )
 
 const DonationInfoPublic = S.object()

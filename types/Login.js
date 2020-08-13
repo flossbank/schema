@@ -30,6 +30,16 @@ const PollRegistrationRequest = S.object()
     S.string().maxLength(128).required()
   )
 
+const CodeHostAuthentication = S.object()
+    .prop(
+      'code',
+      S.string().maxLength(128).description('A code which is used to retrieve an access code meaning we are authed').required()
+    )
+    .prop(
+      'state',
+      S.string().maxLength(128).description('A state is given to a code host, and they return it back to ensure no cross site requests are made on false behalf').required()
+    )
+
 const MagicLinkRequest = S.object().prop('email', S.string().maxLength(128).format('email').required())
 const MagicLinkResponse = S.string() // a verification code
 
@@ -49,5 +59,6 @@ module.exports = {
   MagicLinkAuthentication,
   RecaptchaAuthentication,
   VerifyData,
-  PollRegistrationRequest
+  PollRegistrationRequest,
+  CodeHostAuthentication
 }
