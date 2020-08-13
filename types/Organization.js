@@ -80,29 +80,9 @@ const OrganizationPrivate = S.object()
     OrganizationBillingInfoPrivate
   )
 
-const OrganizationMakeDonationGlobalRequest = S.object()
-  .description('Properties required from orgs to make their donation global or specific to a codeHost')
-  .prop(
-    'globalDonation',
-    S.boolean().required()
-  )
-
-// Orgs of a user
-const UserOrganization = S.object()
-  .prop(
-    'organizationId',
-    S.string().description('The organization id in the organization - user relationship').required()
-  )
-  .prop(
-    'role',
-    S.string().enum(['write', 'read'])
-  )
-
 module.exports = {
-  UserOrganization,
   OrganizationUser,
   OrganizationPrivate,
-  OrganizationMakeDonationGlobalRequest,
   OrganizationCreateDonation,
   OrganizationUpdateDonation,
   OrganizationPublic,

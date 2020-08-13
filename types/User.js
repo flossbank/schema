@@ -1,6 +1,5 @@
 const S = require('fluent-schema')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
-const { UserOrganization } = require('./Organization')
 
 const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
@@ -11,6 +10,17 @@ const UserInstallComplete = S.object()
     'token',
     UserInstallToken
   ).required()
+
+// Orgs of a user
+const UserOrganization = S.object()
+  .prop(
+    'organizationId',
+    S.string().description('The organization id in the organization - user relationship').required()
+  )
+  .prop(
+    'role',
+    S.string().enum(['write', 'read'])
+  )
 
 const UserBillingInfoPublic = S.object()
   .extend(BillingInfo)
