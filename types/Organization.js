@@ -22,7 +22,7 @@ const OrganizationNames = S.array().items(
   )
   .prop(
     'host',
-    S.string().description('The code host of the list of organizations')
+    S.string().enum(['GitHub']).description('The code host of the list of organizations')
   )
 )
 
