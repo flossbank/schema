@@ -20,6 +20,10 @@ const OrganizationNames = S.array().items(
     'name',
     S.string().description('The name of organizations')
   )
+  .prop(
+    'host',
+    S.string().description('The code host of the list of organizations')
+  )
 )
 
 const OrganizationCreateDonation = S.object()
@@ -91,7 +95,7 @@ const OrganizationPrivate = S.object()
 module.exports = {
   OrganizationUser,
   OrganizationPrivate,
-  OrganizationNames
+  OrganizationNames,
   OrganizationCreateDonation,
   OrganizationUpdateDonation,
   OrganizationPublic,
