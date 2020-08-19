@@ -14,6 +14,18 @@ const OrganizationUser = S.object()
     S.string().enum(['write', 'read'])
   )
 
+const OrganizationNames = S.array().items(
+  S.object()
+  .prop(
+    'name',
+    S.string().description('The name of organizations')
+  )
+  .prop(
+    'host',
+    S.string().enum(['GitHub']).description('The code host of the list of organizations')
+  )
+)
+
 const OrganizationCreateDonation = S.object()
   .extend(BillingInfoUpdate)
   .prop(
@@ -83,6 +95,7 @@ const OrganizationPrivate = S.object()
 module.exports = {
   OrganizationUser,
   OrganizationPrivate,
+  OrganizationNames,
   OrganizationCreateDonation,
   OrganizationUpdateDonation,
   OrganizationPublic,
