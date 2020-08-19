@@ -68,6 +68,6 @@ module.exports = {
     feedback: require('./api/customer/feedback')
   },
   organization: {
-    githubAuth: require('./api/organization/github-auth')
+    githubListOrgs: require('./api/organization/github-list-orgs')
   }
 }
