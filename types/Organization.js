@@ -14,8 +14,7 @@ const OrganizationUser = S.object()
     S.string().enum(['write', 'read'])
   )
 
-const OrganizationNames = S.array().items(
-  S.object()
+const OrgIdentifyingFields = S.object()
   .prop(
     'name',
     S.string().description('The name of organizations')
@@ -24,7 +23,8 @@ const OrganizationNames = S.array().items(
     'host',
     S.string().enum(['GitHub']).description('The code host of the list of organizations')
   )
-)
+
+const OrganizationNames = S.array().items(OrgIdentifyingFields)
 
 const OrganizationCreateDonation = S.object()
   .extend(BillingInfoUpdate)
