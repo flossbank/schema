@@ -17,11 +17,11 @@ const OrganizationUser = S.object()
 const OrgIdentifyingFields = S.object()
   .prop(
     'name',
-    S.string().description('The name of organizations')
+    S.string().description('The name of organizations').required()
   )
   .prop(
     'host',
-    S.string().enum(['GitHub']).description('The code host of the list of organizations')
+    S.string().enum(['GitHub']).description('The code host of the list of organizations').required()
   )
 
 const OrganizationNames = S.array().items(OrgIdentifyingFields)
