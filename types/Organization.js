@@ -65,6 +65,10 @@ const OrganizationPublic = S.object()
     S.string().maxLength(128)
   )
   .prop(
+    'host',
+    S.string().enum(['GitHub']).description('The code host of the list of organizations')
+  )
+  .prop(
     'email',
     S.string().maxLength(128)
   )
