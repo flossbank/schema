@@ -98,6 +98,7 @@ const OrganizationPrivate = S.object()
 
 module.exports = {
   OrganizationUser,
+  OrgIdentifyingFields,
   OrganizationPrivate,
   OrganizationNames,
   OrganizationCreateDonation,
