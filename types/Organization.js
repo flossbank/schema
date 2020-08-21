@@ -1,4 +1,5 @@
 const S = require('fluent-schema')
+const { CodeHostEnum } = require('./CodeHosts')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
 
 const OrganizationId = S.string().maxLength(128)
@@ -21,7 +22,7 @@ const OrgIdentifyingFields = S.object()
   )
   .prop(
     'host',
-    S.string().enum(['GitHub']).description('The code host of the list of organizations').required()
+    CodeHostEnum.required()
   )
 
 const OrganizationNames = S.array().items(OrgIdentifyingFields)
@@ -66,7 +67,7 @@ const OrganizationPublic = S.object()
   )
   .prop(
     'host',
-    S.string().enum(['GitHub']).description('The code host of the list of organizations')
+    CodeHostEnum
   )
   .prop(
     'email',
