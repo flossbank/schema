@@ -69,6 +69,7 @@ module.exports = {
   },
   organization: {
     githubListOrgs: require('./api/organization/github-list-orgs'),
-    chooseOrg: require('./api/organization/choose')
+    chooseOrg: require('./api/organization/choose'),
+    createDonation: require('./api/organization/create-donation')
   }
 }

@@ -34,6 +34,10 @@ const OrganizationCreateDonation = S.object()
     S.number().description('The amount (if any) of a monthly donation in cents').required()
   )
   .prop(
+    'organizationId',
+    S.string().description('The id of the organizations').required()
+  )
+  .prop(
     'globalDonation',
     S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem').required()
   )
@@ -42,6 +46,10 @@ const OrganizationUpdateDonation = S.object()
   .prop(
     'amount',
     S.number().description('The amount (if any) of a monthly donation in cents')
+  )
+  .prop(
+    'organizationId',
+    S.string().description('The id of the organizations').required()
   )
   .prop(
     'globalDonation',
