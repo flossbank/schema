@@ -1,4 +1,3 @@
-const S = require('fluent-schema')
 const { DonationInfoPublic } = require('../../types/BillingInfo')
 const { Base200WithData } = require('../../common/reply')
 

@@ -35,7 +35,7 @@ const OrganizationCreateDonation = S.object()
   )
   .prop(
     'organizationId',
-    S.string().description('The id of the organizations').required()
+    OrganizationId.required()
   )
   .prop(
     'globalDonation',
@@ -49,7 +49,7 @@ const OrganizationUpdateDonation = S.object()
   )
   .prop(
     'organizationId',
-    S.string().description('The id of the organizations').required()
+    OrganizationId.required()
   )
   .prop(
     'globalDonation',
@@ -107,6 +107,7 @@ const OrganizationPrivate = S.object()
 
 module.exports = {
   OrganizationUser,
+  OrganizationId,
   OrgIdentifyingFields,
   OrganizationPrivate,
   OrganizationNames,
