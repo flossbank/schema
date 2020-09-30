@@ -24,6 +24,10 @@ const OrgIdentifyingFields = S.object()
     'host',
     CodeHostEnum.required()
   )
+  .prop(
+    'id',
+    S.string()
+  )
 
 const OrganizationNames = S.array().items(OrgIdentifyingFields)
 
