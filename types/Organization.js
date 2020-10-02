@@ -25,6 +25,10 @@ const OrgIdentifyingFields = S.object()
     CodeHostEnum.required()
   )
   .prop(
+    'avatarUrl',
+    S.string().description('The avatar url of a github org')
+  )
+  .prop(
     'id',
     S.string()
   )
