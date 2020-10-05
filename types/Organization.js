@@ -24,6 +24,14 @@ const OrgIdentifyingFields = S.object()
     'host',
     CodeHostEnum.required()
   )
+  .prop(
+    'avatarUrl',
+    S.string().description('The avatar url of a github org')
+  )
+  .prop(
+    'id',
+    S.string()
+  )
 
 const OrganizationNames = S.array().items(OrgIdentifyingFields)
 
