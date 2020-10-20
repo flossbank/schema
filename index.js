@@ -69,6 +69,7 @@ module.exports = {
   },
   organization: {
     githubAuth: require('./api/organization/github-auth'),
+    githubCreate: require('./api/organization/github-create'),
     chooseOrg: require('./api/organization/choose'),
     createDonation: require('./api/organization/create-donation'),
     updateDonation: require('./api/organization/update-donation'),
