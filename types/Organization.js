@@ -33,6 +33,12 @@ const OrgIdentifyingFields = S.object()
     S.string()
   )
 
+const GitHubOrganizationInstall = S.object()
+  .prop(
+    'installationId',
+    S.string().description('The installation ID returned from GitHub when a user installs the GH Flossbank App on their org').required()
+  )
+
 const OrganizationNames = S.array().items(OrgIdentifyingFields)
 
 const OrganizationCreateDonation = S.object()
@@ -122,5 +128,6 @@ module.exports = {
   OrganizationCreateDonation,
   OrganizationUpdateDonation,
   OrganizationPublic,
-  OrganizationBillingInfoPrivate
+  OrganizationBillingInfoPrivate,
+  GitHubOrganizationInstall
 }
