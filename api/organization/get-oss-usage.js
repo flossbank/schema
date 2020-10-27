@@ -1,5 +1,5 @@
 const S = require('fluent-schema')
-const { OrganizationOssDetails, OrganizationId } = require('../../types/organization')
+const { OrganizationOssDetails, OrganizationId } = require('../../types/Organization')
 const { Base200WithData } = require('../../common/reply')
 
 module.exports = {
