@@ -59,15 +59,15 @@ const OrganizationCreateDonation = S.object()
 const OrganizationOssDetails = S.object()
   .prop(
     'timestamp',
-    S.number().description('Timestamp of the latest snapshot of oss details')
+    S.number().description('Timestamp of the latest snapshot of oss usage')
   )
   .prop(
     'topLevelDependencies',
-    S.number().description('Number of top level dependencies in the last snapshot of oss details')
+    S.number().description('Number of top level dependencies in the last snapshot of oss usage')
   )
   .prop(
     'totalDependencies',
-    S.number().description('Number of total dependencies in the last snapshot of oss details')
+    S.number().description('Number of total dependencies in the last snapshot of oss usage')
   )
 
 const OrganizationUpdateDonation = S.object()
