@@ -74,6 +74,7 @@ module.exports = {
     createDonation: require('./api/organization/create-donation'),
     updateDonation: require('./api/organization/update-donation'),
     deleteDonation: require('./api/organization/delete-donation'),
-    getDonationInfo: require('./api/organization/get-donation-info')
+    getDonationInfo: require('./api/organization/get-donation-info'),
+    getOssDetails: require('./api/organization/get-oss-details')
   }
 }

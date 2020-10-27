@@ -56,6 +56,20 @@ const OrganizationCreateDonation = S.object()
     S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem').required()
   )
 
+const OrganizationOssDetails = S.object()
+  .prop(
+    'timestamp',
+    S.number().description('Timestamp of the latest snapshot of oss details')
+  )
+  .prop(
+    'topLevelDependencies',
+    S.number().description('Number of top level dependencies in the last snapshot of oss details')
+  )
+  .prop(
+    'totalDependencies',
+    S.number().description('Number of total dependencies in the last snapshot of oss details')
+  )
+
 const OrganizationUpdateDonation = S.object()
   .prop(
     'amount',
@@ -122,6 +136,7 @@ const OrganizationPrivate = S.object()
 module.exports = {
   OrganizationUser,
   OrganizationId,
+  OrganizationOssDetails,
   OrgIdentifyingFields,
   OrganizationPrivate,
   OrganizationNames,
