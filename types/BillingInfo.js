@@ -35,4 +35,17 @@ const DonationInfoPublic = S.object()
     S.number().description('Next charge date in milliseconds timestamp')
   )
 
-module.exports = { BillingInfo, BillingInfoUpdate, BillingInfoWithCustomerId, DonationInfoPublic }
+const OrgDonationInfoPublic = S.object()
+  .extend(DonationInfoPublic)
+  .prop(
+    'totalDonated',
+    S.number().description('Total amount of donations ever made for an org')
+  )
+
+module.exports = { 
+  BillingInfo, 
+  OrgDonationInfoPublic, 
+  BillingInfoUpdate, 
+  BillingInfoWithCustomerId, 
+  DonationInfoPublic 
+}
