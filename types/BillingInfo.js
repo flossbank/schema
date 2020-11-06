@@ -38,7 +38,7 @@ const DonationInfoPublic = S.object()
 const OrgDonationInfoPublic = S.object()
   .extend(DonationInfoPublic)
   .prop(
-    'totalDonationsMade',
+    'totalDonated',
     S.number().description('Total amount of donations ever made for an org')
   )
 
