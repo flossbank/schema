@@ -110,6 +110,10 @@ const OrganizationPublic = S.object()
     S.string().maxLength(128)
   )
   .prop(
+    'avatarUrl',
+    S.string().description('The avatar url of a github org')
+  )
+  .prop(
     'users',
     S.array().items(OrganizationUser)
   )
