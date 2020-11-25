@@ -6,6 +6,6 @@ const { Base200WithData } = require('../../common/reply')
 module.exports = {
   body: CodeHostAuthentication,
   response: {
-    200: Base200WithData('user', UserPublic, 'organizations', OrganizationNames)
+    200: Base200WithData('user', UserPublic)
   }
 }
