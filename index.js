@@ -28,6 +28,7 @@ module.exports = {
     verify: require('./api/maintainer/verify')
   },
   package: {
+    searchByName: require('./api/package/search-by-name'),
     get: require('./api/package/get'),
     refresh: require('./api/package/refresh'),
     update: require('./api/package/update')
