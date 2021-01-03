@@ -16,12 +16,12 @@ const PackageMaintainer = S.object()
       .description('Denotes what percentage of the package revenue belongs to this maintainer. Stored as n*100.')
   )
 
-const PackageRegistry = S.string().enum(['npm'])
+const PackageRegistry = S.string().enum(['npm', 'rubygems'])
 
 const PackageId = S.string().maxLength(128)
 
 const PackagePublic = S.object()
-  .description('Package properties visible to authorized requesters')
+  .description('Package properties visible to the public')
   .prop('id', PackageId)
   .prop(
     'name',
@@ -34,6 +34,10 @@ const PackagePublic = S.object()
   .prop(
     'registry',
     PackageRegistry
+  )
+  .prop(
+    'avatarUrl',
+    S.string().description('The avatar url of a github org')
   )
 
 const PackagePrivate = S.object()
