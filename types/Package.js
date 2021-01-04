@@ -39,6 +39,14 @@ const PackagePublic = S.object()
     'avatarUrl',
     S.string().description('The avatar url of a github org')
   )
+  .prop(
+    'donationRevenue',
+    S.number().description('Total amount donated to this package')
+  )
+  .prop(
+    'adRevenue',
+    S.number().description('Total amount raised through ads for this package')
+  )
 
 const PackagePrivate = S.object()
   .description('Package properties visible to Flossbank')
