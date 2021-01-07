@@ -4,8 +4,8 @@ const { MaintainerId } = require('./Maintainer')
 
 const PackageMaintainer = S.object()
   .prop(
-    'maintainerId',
-    MaintainerId
+    'username',
+    S.string().maxLength(128)
   )
   .prop(
     'revenuePercent',
