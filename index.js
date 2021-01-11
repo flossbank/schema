@@ -30,6 +30,7 @@ module.exports = {
   package: {
     searchByName: require('./api/package/search-by-name'),
     get: require('./api/package/get'),
+    getOwnedPackages: require('./api/package/get-owned-packages'),
     refresh: require('./api/package/refresh'),
     update: require('./api/package/update')
   },

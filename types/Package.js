@@ -4,8 +4,8 @@ const { MaintainerId } = require('./Maintainer')
 
 const PackageMaintainer = S.object()
   .prop(
-    'maintainerId',
-    MaintainerId
+    'username',
+    S.string().maxLength(128)
   )
   .prop(
     'revenuePercent',
@@ -38,6 +38,14 @@ const PackagePublic = S.object()
   .prop(
     'avatarUrl',
     S.string().description('The avatar url of a github org')
+  )
+  .prop(
+    'donationRevenue',
+    S.number().description('Total amount donated to this package')
+  )
+  .prop(
+    'adRevenue',
+    S.number().description('Total amount raised through ads for this package')
   )
 
 const PackagePrivate = S.object()
