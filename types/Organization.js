@@ -53,7 +53,7 @@ const OrganizationCreateDonation = S.object()
   )
   .prop(
     'globalDonation',
-    S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem').required()
+    S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem')
   )
 
 const OrganizationOssDetails = S.object()
@@ -130,6 +130,16 @@ const OrganizationPublic = S.object()
     BillingInfo
   )
 
+const OrganizationUpdate = S.object()
+  .prop(
+    'organizationId',
+    S.string().required()
+  )
+  .prop(
+    'billingEmail',
+    S.string().format('email').maxLength(128).required()
+  )
+
 const OrganizationPrivate = S.object()
   .extend(OrganizationPublic)
   .prop(
@@ -147,6 +157,7 @@ module.exports = {
   OrganizationCreateDonation,
   OrganizationUpdateDonation,
   OrganizationPublic,
+  OrganizationUpdate,
   OrganizationBillingInfoPrivate,
   GitHubOrganizationInstall
 }
