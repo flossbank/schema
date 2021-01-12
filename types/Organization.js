@@ -137,7 +137,7 @@ const OrganizationUpdate = S.object()
   )
   .prop(
     'billingEmail',
-    S.string().maxLength(128).required()
+    S.string().format('email').maxLength(128).required()
   )
 
 const OrganizationPrivate = S.object()
