@@ -1,8 +1,8 @@
-const { OrganizationCreateDonation } = require('../../types/Organization')
+const { OrganizationUpdate } = require('../../types/Organization')
 const { Base200Response } = require('../../common/reply')
 
 module.exports = {
-  body: OrganizationCreateDonation,
+  body: OrganizationUpdate,
   response: {
     200: Base200Response
   }
