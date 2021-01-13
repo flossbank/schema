@@ -94,6 +94,12 @@ const PackageUpdate = S.object()
     MaintainerId
   ).required()
 
+const NpmOwnershipRequest = S.object()
+  .prop(
+    'readOnlyToken',
+    S.string()
+  ).required()
+
 module.exports = {
   PackageId,
   PackageRegistry,
@@ -102,5 +108,6 @@ module.exports = {
   PackageMaintainerProps,
   PackageUserProps,
   PackagePrivate,
-  PackageUpdate
+  PackageUpdate,
+  NpmOwnershipRequest
 }
