@@ -17,6 +17,7 @@ const PackageMaintainer = S.object()
   )
 
 const PackageRegistry = S.string().enum(['npm', 'rubygems'])
+const PackageLanguage = S.string().enum(['javascript', 'ruby'])
 
 const PackageId = S.string().maxLength(128)
 
@@ -29,7 +30,7 @@ const PackagePublic = S.object()
   )
   .prop(
     'language',
-    S.string()
+    PackageLanguage
   )
   .prop(
     'registry',
@@ -103,6 +104,7 @@ const NpmOwnershipRequest = S.object()
 module.exports = {
   PackageId,
   PackageRegistry,
+  PackageLanguage,
   PackagePublic,
   PackageMaintainer,
   PackageMaintainerProps,
