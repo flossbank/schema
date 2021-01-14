@@ -25,7 +25,8 @@ module.exports = {
     register: require('./api/maintainer/register'),
     revenue: require('./api/maintainer/revenue'),
     updatePayout: require('./api/maintainer/updatePayout'),
-    verify: require('./api/maintainer/verify')
+    verify: require('./api/maintainer/verify'),
+    ownedPackages: require('./api/maintainer/owned-packages')
   },
   package: {
     searchByName: require('./api/package/search-by-name'),
@@ -64,8 +65,7 @@ module.exports = {
     getDonationInfo: require('./api/user/get-donation-info'),
     getSessions: require('./api/user/get-sessions'),
     resumeSession: require('./api/user/resume'),
-    githubAuth: require('./api/user/github-auth'),
-    ownedPackages: require('./api/user/owned-packages')
+    githubAuth: require('./api/user/github-auth')
   },
   stripe: {
     webhooks: require('./api/stripe/webhook-event')
