@@ -25,7 +25,8 @@ module.exports = {
     register: require('./api/maintainer/register'),
     revenue: require('./api/maintainer/revenue'),
     updatePayout: require('./api/maintainer/updatePayout'),
-    verify: require('./api/maintainer/verify')
+    verify: require('./api/maintainer/verify'),
+    ownedPackages: require('./api/maintainer/owned-packages')
   },
   package: {
     searchByName: require('./api/package/search-by-name'),
