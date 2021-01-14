@@ -32,7 +32,10 @@ module.exports = {
     get: require('./api/package/get'),
     getOwnedPackages: require('./api/package/get-owned-packages'),
     refresh: require('./api/package/refresh'),
-    update: require('./api/package/update')
+    update: require('./api/package/update'),
+    npm: {
+      ownership: require('./api/package/npm/ownership')
+    }
   },
   session: {
     start: require('./api/session/start'),
