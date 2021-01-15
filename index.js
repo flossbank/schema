@@ -34,6 +34,7 @@ module.exports = {
     getOwnedPackages: require('./api/package/get-owned-packages'),
     update: require('./api/package/update'),
     npm: {
+      deleteOwnership: require('./api/package/npm/delete-ownership'),
       refreshOwnership: require('./api/package/npm/refresh-ownership'),
       ownership: require('./api/package/npm/ownership')
     }
