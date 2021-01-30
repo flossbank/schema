@@ -113,6 +113,12 @@ const UserRegistration = S.object()
     S.string().maxLength(8)
   )
 
+const UpdateUsername = S.object()
+  .prop(
+    'username',
+    S.string().maxLength(64).pattern("^[a-zA-Z0-9-]+$").required()
+  )
+
 const UserOptOutRequest = S.object()
   .description('Properties required from clients to opt out of ads for a user')
   .prop(
@@ -130,6 +136,7 @@ const UserSessionDataPublic = S.object()
 module.exports = {
   UserPrivate,
   UserKeyPair,
+  UpdateUsername,
   UserApiKey,
   UserInstallToken,
   UserInstallComplete,

@@ -19,13 +19,8 @@ module.exports = {
     verify: require('./api/advertiser/verify')
   },
   maintainer: {
-    get: require('./api/maintainer/get'),
-    login: require('./api/maintainer/login'),
-    logout: require('./api/maintainer/logout'),
-    register: require('./api/maintainer/register'),
-    revenue: require('./api/maintainer/revenue'),
+    updateUsername: require('./api/maintainer/update-username'),
     updatePayout: require('./api/maintainer/updatePayout'),
-    verify: require('./api/maintainer/verify'),
     ownedPackages: require('./api/maintainer/owned-packages')
   },
   package: {
