@@ -68,6 +68,10 @@ const UserPublic = S.object()
     S.string().maxLength(128)
   )
   .prop(
+    'username',
+    S.string().maxLength(64).pattern("^[a-zA-Z0-9-]+$")
+  )
+  .prop(
     'email',
     S.string().maxLength(128).format('email')
   )
