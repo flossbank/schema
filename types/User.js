@@ -4,6 +4,7 @@ const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
 const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
+const Username = S.string().minLength(3).maxLength(64).pattern('^\\w+$')
 
 const UserInstallComplete = S.object()
   .prop(
@@ -68,6 +69,10 @@ const UserPublic = S.object()
     S.string().maxLength(128)
   )
   .prop(
+    'username',
+    Username
+  )
+  .prop(
     'email',
     S.string().maxLength(128).format('email')
   )
@@ -113,6 +118,12 @@ const UserRegistration = S.object()
     S.string().maxLength(8)
   )
 
+const UpdateUsername = S.object()
+  .prop(
+    'username',
+    Username.required()
+  )
+
 const UserOptOutRequest = S.object()
   .description('Properties required from clients to opt out of ads for a user')
   .prop(
@@ -130,6 +141,7 @@ const UserSessionDataPublic = S.object()
 module.exports = {
   UserPrivate,
   UserKeyPair,
+  UpdateUsername,
   UserApiKey,
   UserInstallToken,
   UserInstallComplete,
