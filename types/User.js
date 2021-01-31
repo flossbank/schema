@@ -4,7 +4,7 @@ const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
 const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
-const Username = S.string().minLength(3).maxLength(64).pattern("^\w+$").required()
+const Username = S.string().minLength(3).maxLength(64).pattern('^\\w+$')
 
 const UserInstallComplete = S.object()
   .prop(
@@ -121,7 +121,7 @@ const UserRegistration = S.object()
 const UpdateUsername = S.object()
   .prop(
     'username',
-    Username
+    Username.required()
   )
 
 const UserOptOutRequest = S.object()
