@@ -21,7 +21,8 @@ module.exports = {
   maintainer: {
     updateUsername: require('./api/maintainer/update-username'),
     updatePayout: require('./api/maintainer/updatePayout'),
-    ownedPackages: require('./api/maintainer/owned-packages')
+    ownedPackages: require('./api/maintainer/owned-packages'),
+    updateIlpPointer: require('./api/maintainer/update-ilp-pointer')
   },
   package: {
     searchByName: require('./api/package/search-by-name'),

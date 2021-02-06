@@ -5,6 +5,7 @@ const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
 const Username = S.string().minLength(3).maxLength(64).pattern('^\\w+$')
+const IlpPointer = S.string().minLength(3).maxLength(1000)
 
 const UserInstallComplete = S.object()
   .prop(
@@ -124,6 +125,12 @@ const UpdateUsername = S.object()
     Username.required()
   )
 
+const UpdateIlpPointer = S.object()
+  .prop(
+    'ilpPointer',
+    IlpPointer.required()
+  )
+
 const UserOptOutRequest = S.object()
   .description('Properties required from clients to opt out of ads for a user')
   .prop(
@@ -140,6 +147,7 @@ const UserSessionDataPublic = S.object()
 
 module.exports = {
   UserPrivate,
+  UpdateIlpPointer,
   UserKeyPair,
   UpdateUsername,
   UserApiKey,
