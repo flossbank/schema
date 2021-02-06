@@ -5,7 +5,7 @@ const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
 const UserApiKey = S.string().maxLength(128)
 const Username = S.string().minLength(3).maxLength(64).pattern('^\\w+$')
-const IlpPointer = S.string().minLength(3).maxLength(128)
+const IlpPointer = S.string().minLength(3).maxLength(1000)
 
 const UserInstallComplete = S.object()
   .prop(
