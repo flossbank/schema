@@ -1,6 +1,7 @@
 const S = require('fluent-schema')
 const { InstallPrivate } = require('./Install')
 const { MaintainerId } = require('./Maintainer')
+const { OrganizationId } = require('./Organization')
 
 const PackageMaintainer = S.object()
   .prop(
@@ -73,6 +74,28 @@ const PackageMaintainerProps = S.object()
     MaintainerId
   )
 
+CompaniesSupportingPackage = S.array()
+  .description('List of companies that are supporting a package')
+  .items(
+    S.object()
+      .prop(
+        'organizationId',
+        OrganizationId
+      )
+      .prop(
+        'contributionAmount',
+        S.number()
+      )
+      .prop(
+        'name',
+        S.string()
+      )
+      .prop(
+        'avatarUrl',
+        S.string()
+      )
+  )
+
 const PackageUserProps = S.object()
   .description('Package properties visible to users')
   .extend(PackagePublic)
@@ -103,6 +126,7 @@ const NpmOwnershipRequest = S.object()
 
 module.exports = {
   PackageId,
+  CompaniesSupportingPackage,
   PackageRegistry,
   PackageLanguage,
   PackagePublic,
