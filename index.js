@@ -27,7 +27,7 @@ module.exports = {
   package: {
     searchByName: require('./api/package/search-by-name'),
     get: require('./api/package/get'),
-    getOwnedPackages: require('./api/package/get-owned-packages'),
+    getSupportingCompanies: require('./api/package/get-supporting-companies'),
     update: require('./api/package/update'),
     npm: {
       deleteOwnership: require('./api/package/npm/delete-ownership'),
