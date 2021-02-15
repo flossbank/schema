@@ -131,6 +131,10 @@ const OrganizationPublic = S.object()
     S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem').required()
   )
   .prop(
+    'publicallyGive',
+    S.boolean().description('Whether the org wants their donations to deps public')
+  )
+  .prop(
     'billingInfo',
     BillingInfo
   )
