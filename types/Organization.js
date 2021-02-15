@@ -56,6 +56,10 @@ const OrganizationCreateDonation = S.object()
     'globalDonation',
     S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem')
   )
+  .prop(
+    'publicallyGive',
+    S.boolean().description('Whether the org wants their donations to deps public')
+  )
 
 const OrganizationOssDetails = S.object()
   .prop(
@@ -138,7 +142,11 @@ const OrganizationUpdate = S.object()
   )
   .prop(
     'billingEmail',
-    S.string().format('email').maxLength(128).required()
+    S.string().format('email').maxLength(128)
+  )
+  .prop(
+    'publicallyGive',
+    S.boolean()
   )
 
 const OrganizationPrivate = S.object()
