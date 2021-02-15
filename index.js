@@ -81,6 +81,7 @@ module.exports = {
     getDonationInfo: require('./api/organization/get-donation-info'),
     getOssUsage: require('./api/organization/get-oss-usage'),
     getByName: require('./api/organization/get-by-name'),
-    update: require('./api/organization/update')
+    update: require('./api/organization/update'),
+    getDonationLedger: require('./api/organization/get-donation-ledger')
   }
 }
