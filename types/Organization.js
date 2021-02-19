@@ -1,6 +1,7 @@
 const S = require('fluent-schema')
 const { CodeHostEnum } = require('./CodeHosts')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
+const { MaintainerBase } = require('./Maintainer')
 
 const OrganizationId = S.string().maxLength(128)
 
@@ -147,9 +148,20 @@ const OrganizationPrivate = S.object()
     OrganizationBillingInfoPrivate
   )
 
+const OrgDonationLedger = S.array()
+  .items(
+    S.object()
+      .prop('totalPaid', S.number())
+      .prop('id', S.string())
+      .prop('name', S.string())
+      .prop('registry', S.string())
+      .prop('maintainers', S.array().items(MaintainerBase))
+  )
+
 module.exports = {
   OrganizationUser,
   OrganizationId,
+  OrgDonationLedger,
   OrganizationOssDetails,
   OrgIdentifyingFields,
   OrganizationPrivate,
