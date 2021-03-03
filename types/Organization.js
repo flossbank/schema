@@ -111,6 +111,10 @@ const OrganizationPublic = S.object()
     CodeHostEnum
   )
   .prop(
+    'description',
+    S.string().maxLength(1024)
+  )
+  .prop(
     'email',
     S.string().maxLength(128)
   )
@@ -151,6 +155,10 @@ const OrganizationUpdate = S.object()
   .prop(
     'publicallyGive',
     S.boolean()
+  )
+  .prop(
+    'description',
+    S.string().maxLength(1024)
   )
 
 const OrganizationPrivate = S.object()
