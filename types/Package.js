@@ -124,6 +124,16 @@ const NpmOwnershipRequest = S.object()
     S.string()
   ).required()
 
+const RubyGemsOwnershipRequest = S.object()
+  .prop(
+    'readOnlyToken',
+    S.string()
+  ).required()
+  .prop(
+    'username',
+    S.string()
+  ).required()
+
 module.exports = {
   PackageId,
   CompaniesSupportingPackage,
@@ -135,5 +145,6 @@ module.exports = {
   PackageUserProps,
   PackagePrivate,
   PackageUpdate,
-  NpmOwnershipRequest
+  NpmOwnershipRequest,
+  RubyGemsOwnershipRequest
 }
