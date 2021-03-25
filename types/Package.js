@@ -1,12 +1,19 @@
 const S = require('fluent-schema')
 const { InstallPrivate } = require('./Install')
-const { MaintainerId } = require('./Maintainer')
-const { OrganizationId } = require('./Organization')
+const { UserId } = require('./User')
 
 const PackageMaintainer = S.object()
   .prop(
     'username',
-    S.string().maxLength(128)
+    S.string()
+  )
+  .prop(
+    'userId',
+    UserId
+  )
+  .prop(
+    'source',
+    S.string().enum(['registry', 'invite'])
   )
   .prop(
     'revenuePercent',
@@ -69,10 +76,6 @@ const PackageMaintainerProps = S.object()
     'maintainers',
     S.array().items(PackageMaintainer)
   )
-  .prop(
-    'owner',
-    MaintainerId
-  )
 
 CompaniesSupportingPackage = S.array()
   .description('List of companies that are supporting a package')
@@ -80,7 +83,7 @@ CompaniesSupportingPackage = S.array()
     S.object()
       .prop(
         'organizationId',
-        OrganizationId
+        S.string().maxLength(128)
       )
       .prop(
         'contributionAmount',
@@ -112,10 +115,6 @@ const PackageUpdate = S.object()
   .prop(
     'maintainers',
     S.array().items(PackageMaintainer)
-  ).required()
-  .prop(
-    'owner',
-    MaintainerId
   ).required()
 
 const NpmOwnershipRequest = S.object()
