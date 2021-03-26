@@ -36,8 +36,8 @@ module.exports = {
       ownership: require('./api/package/npm/ownership')
     },
     rubygems: {
-      // deleteOwnership: require('./api/package/npm/delete-ownership'),
-      // refreshOwnership: require('./api/package/npm/refresh-ownership'),
+      deleteOwnership: require('./api/package/npm/delete-ownership'),
+      refreshOwnership: require('./api/package/npm/refresh-ownership'),
       ownership: require('./api/package/rubygems/ownership')
     }
   },
