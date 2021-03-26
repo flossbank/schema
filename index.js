@@ -68,7 +68,8 @@ module.exports = {
     getDonationInfo: require('./api/user/get-donation-info'),
     getSessions: require('./api/user/get-sessions'),
     resumeSession: require('./api/user/resume'),
-    githubAuth: require('./api/user/github-auth')
+    githubAuth: require('./api/user/github-auth'),
+    isGithubOrgAdmin: require('./api/user/is-github-org-admin')
   },
   stripe: {
     webhooks: require('./api/stripe/webhook-event')
