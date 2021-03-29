@@ -1,6 +1,6 @@
 {
   "name": "@flossbank/schema",
-  "version": "1.30.3",
+  "version": "1.31.0",
   "devDependencies": {
     "standard": "^14.3.1"
   },
