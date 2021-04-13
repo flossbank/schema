@@ -27,6 +27,7 @@ module.exports = {
   },
   package: {
     searchByName: require('./api/package/search-by-name'),
+    updateMaintainerRevenueShares: require('./api/package/update-maintainer-revenue-shares'),
     get: require('./api/package/get'),
     getSupportingCompanies: require('./api/package/get-supporting-companies'),
     update: require('./api/package/update'),
