@@ -69,6 +69,27 @@ const PackagePrivate = S.object()
     S.number().description('Timestamp of the last payout')
   )
 
+const PackageUpdateMaintainerRevenueShares = S.object()
+  .description('Update fields when changing revenue shares of maintainers')
+  .prop(
+    'packageId',
+    PackageId
+  )
+  .prop(
+    'maintainers',
+    S.array().items(
+      S.object()
+        .prop(
+          'userId',
+          S.string().required()
+        )
+        .prop(
+          'revenuePercent',
+          S.number().minimum(0).maximum(100).required()
+        )
+    )
+  )
+
 const PackageMaintainerProps = S.object()
   .description('Package properties visible to maintainers')
   .extend(PackagePublic)
@@ -141,6 +162,7 @@ module.exports = {
   PackagePublic,
   PackageMaintainer,
   PackageMaintainerProps,
+  PackageUpdateMaintainerRevenueShares,
   PackageUserProps,
   PackagePrivate,
   PackageUpdate,
