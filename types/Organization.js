@@ -131,6 +131,10 @@ const OrganizationPublic = S.object()
     S.number().description('The amount (if any) of a monthly donation in cents')
   )
   .prop(
+    'totalDonated',
+    S.number().description('The amount (if any) that has been donated in total, in millicents')
+  )
+  .prop(
     'globalDonation',
     S.boolean().description('Whether the donation should be specific to the code host or global to fb ecosystem').required()
   )
