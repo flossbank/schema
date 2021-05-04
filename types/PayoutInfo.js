@@ -1,10 +1,12 @@
 const S = require('fluent-schema')
 
-const PayoutInfo = S.string()
-  .maxLength(256)
-  .description('TBD; probably an email address for payout')
+const PayoutInfo = S.object()
+  .prop(
+    'ilpPointer',
+    S.string().maxLength(256).description('Ilp pointer')
+  )
 
 const PayoutInfoUpdate = S.object()
-  .prop('payoutInfo', PayoutInfo).required()
+  .prop('payoutInfo', S.string().maxLength(256)).required()
 
 module.exports = { PayoutInfo, PayoutInfoUpdate }
