@@ -1,5 +1,6 @@
 const S = require('fluent-schema')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
+const { PayoutInfo } = require('./PayoutInfo')
 
 const UserId = S.string().maxLength(128)
 const UserInstallToken = S.string().maxLength(128)
@@ -82,8 +83,8 @@ const UserPublic = S.object()
     UserBillingInfoPublic
   )
   .prop(
-    'organizations',
-    S.array().items(UserOrganization)
+    'payoutInfo',
+    PayoutInfo
   )
   .prop(
     'optOutOfAds',
