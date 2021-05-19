@@ -1,7 +1,6 @@
 const S = require('fluent-schema')
 const { CodeHostEnum } = require('./CodeHosts')
 const { BillingInfo, BillingInfoUpdate } = require('./BillingInfo')
-const { MaintainerBase } = require('./Maintainer')
 
 const OrganizationId = S.string().maxLength(128)
 
@@ -183,7 +182,6 @@ const OrgDonationLedger = S.array()
       .prop('id', S.string())
       .prop('name', S.string())
       .prop('registry', S.string())
-      .prop('maintainers', S.array().items(MaintainerBase))
   )
 
 module.exports = {
